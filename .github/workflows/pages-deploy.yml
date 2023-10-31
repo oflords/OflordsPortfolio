@@ -1,8 +1,10 @@
-
 name: pages-deploy
 
 on:
   push:
+    branches:
+      - master
+  pull_request:
     branches:
       - master
 
@@ -15,18 +17,21 @@ jobs:
 
       # Install .NET Core SDK
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v2
+        uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 6.0.x
 
-      # Publish the site
-      - name: Publish
-        run: dotnet publish OflordsPortfolio.sln -c:Release -o:publish -p:GHPages=true
+      # Install dotnet wasm buildtools workload
+      - name: Install .NET WASM Build Tools
+        run: dotnet workload install wasm-tools
 
-      # Deploy the site
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      # Publishes Blazor project to the release-folder
+      - name: Publish .NET Core Project
+        run: dotnet publish OflordsPortfolio.csproj -c:Release -p:GHPages=true -o dist/Web --nologo
+
+      - name: Commit wwwroot to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: publish/wwwroot
-          force_orphan: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: pages-deploy
+          FOLDER: dist/Web/wwwroot
