@@ -13,6 +13,28 @@
 		<PackageReference Include="MudBlazor" Version="6.0.13" />
 		<PackageReference Include="PublishSPAforGitHubPages.Build" Version="2.1.0" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\Images\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="wwwroot\Images\Bungee1.png" />
+	  <None Include="wwwroot\Images\Bungee2.png" />
+	  <None Include="wwwroot\Images\Bungee3.png" />
+	  <None Include="wwwroot\Images\Duels1.png" />
+	  <None Include="wwwroot\Images\Duels2.png" />
+	  <None Include="wwwroot\Images\Duels3.png" />
+	  <None Include="wwwroot\Images\Lobby1.png" />
+	  <None Include="wwwroot\Images\Lobby2.png" />
+	  <None Include="wwwroot\Images\Lobby3.png" />
+	  <None Include="wwwroot\Images\Punish1.png" />
+	  <None Include="wwwroot\Images\Punish2.png" />
+	  <None Include="wwwroot\Images\Punish3.png" />
+	  <None Include="wwwroot\Images\UHC1.png" />
+	  <None Include="wwwroot\Images\UHC2.png" />
+	  <None Include="wwwroot\Images\UHC3.png" />
+	</ItemGroup>
 	
 	
 </Project>
