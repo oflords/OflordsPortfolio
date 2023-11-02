@@ -9,9 +9,10 @@
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         <MudSpacer />
         <MudToggleIconButton @bind-Toggled="_isDarkMode"
-                             Icon="@Icons.Material.Filled.LightMode" Color="@Color.Inherit" Title="Off"
+                             Icon="@Icons.Material.Filled.LightMode" Color="@Color.Inherit" Title="Enable Dark Mode" ToggledTitle="Enable Light Mode"
                              ToggledIcon="@Icons.Material.Filled.DarkMode" ToggledColor="@Color.Success" />
         <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Href="https://github.com/oflords" Target="_blank" />
+        <MudIconButton Icon="@Icons.Custom.Brands.Discord" Color="Color.Inherit" Href="http://discord.oflords.dev/" Target="_blank" />
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" Elevation="1">
         <MudDrawerHeader>
